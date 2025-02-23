@@ -89,8 +89,6 @@
     group: root
     mode: '751'
 
-/etc/apt/trusted.gpg.d/keyrings
-
 - name: create ssh authorized_keys 
   lineinfile:
     dest: "/home/{{ user }}/.ssh/authorized_keys"
