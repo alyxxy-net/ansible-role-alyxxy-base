@@ -92,10 +92,10 @@
 - name: create ssh authorized_keys 
   lineinfile:
     dest: /etc/hosts
-    regexp: "{{ ssh_pub_key }}"
+    regexp: "{{ user_pub_key }}"
     state: present
     create: true
-    line: "{{ ssh_pub_key }}"
+    line: "{{ user_pub_key }}"
   
 - name: create systemd user mode directories
   file:
