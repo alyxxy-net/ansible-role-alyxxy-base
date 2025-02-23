@@ -73,14 +73,24 @@
     mode: '750'
   loop: "{{ zfs_user_datasets }}"
 
-- name: Create .ssh directory
+- name: create .ssh directory
   file:
     path: "/home/{{ user }}/.ssh"
     state: directory
     owner: "{{ user }}"
     group: users
     mode: '750'
-    
+
+- name: create gpg keyrings directory
+  file:
+    path: "/etc/apt/trusted.gpg.d/keyrings"
+    state: directory
+    owner: root
+    group: root
+    mode: '751'
+
+/etc/apt/trusted.gpg.d/keyrings
+
 - name: create ssh authorized_keys 
   lineinfile:
     dest: "/home/{{ user }}/.ssh/authorized_keys"
