@@ -14,7 +14,6 @@ default_packages:
       - curl
       - wget
       - apt-file
-      - software-properties-common
       - apt-transport-https
       - zsh
       - zsh-antigen
