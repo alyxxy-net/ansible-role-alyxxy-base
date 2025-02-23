@@ -81,14 +81,6 @@
     group: users
     mode: '750'
 
-- name: create gpg keyrings directory
-  file:
-    path: "/etc/apt/trusted.gpg.d/keyrings"
-    state: directory
-    owner: root
-    group: root
-    mode: '751'
-
 - name: create ssh authorized_keys 
   lineinfile:
     dest: "/home/{{ user }}/.ssh/authorized_keys"
