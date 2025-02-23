@@ -80,22 +80,17 @@
     owner: "{{ user }}"
     group: users
     mode: '750'
-
-- name: Copy ssh authorized_keys
-  copy:
-    src: "../files/authorized_keys"
-    dest: "/home/{{ user }}/.ssh/"
-    owner: "{{ user }}"
-    group: users
-    mode: '640'    
-
+    
 - name: create ssh authorized_keys 
   lineinfile:
-    dest: /etc/hosts
+    dest: "/home/{{ user }}/.ssh/authorized_keys"
     regexp: "{{ user_pub_key }}"
     state: present
     create: true
     line: "{{ user_pub_key }}"
+    owner: "{{ user }}"
+    group: users
+    mode: '640'    
   
 - name: create systemd user mode directories
   file:
